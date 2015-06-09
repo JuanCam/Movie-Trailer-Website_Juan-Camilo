@@ -91,7 +91,7 @@ main_page_head = '''
         });
         // Animate in the movies when the page loads
         $(document).ready(function () {
-          $('.movie-tile').hide().first().show("fast", function showNext() {
+          $('.movie-tile,.movie-tile div').hide().first().show("fast", function showNext() {
             $(this).next("div").show("fast", showNext);
           });
         });
@@ -111,6 +111,7 @@ main_page_head = '''
           filtr.css('display','block')//Display all the filter results
           //console.log(filtr)
         })
+
     </script>
 </head>
 '''
@@ -166,6 +167,12 @@ movie_tile_content = '''
   <div class="movies-container col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
       <img src="{poster_image_url}" width="220" height="342">
       <h2>{movie_title}</h2>
+      <span class="show-storyline" data-id="{movie_title}">Storyline</span>
+      <span class="panel panel-default {movie_title}">
+        <span class="panel-body">
+          {storyline}
+        </span>
+      </span>
   </div>
 
 '''
@@ -183,7 +190,8 @@ def create_movie_tiles_content(movies):
         content += movie_tile_content.format(
             movie_title=movie.title,
             poster_image_url=movie.poster_image_url,
-            trailer_youtube_id=trailer_youtube_id
+            trailer_youtube_id=trailer_youtube_id,
+            storyline = movie.storyline
         )
     return content
 

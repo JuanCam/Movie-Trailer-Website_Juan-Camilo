@@ -47,6 +47,16 @@ as_good_as_it_gets = movie.Movie('As Good as it Gets',
 								 'Melvin Udall is a misanthrope who works at home as a best-selling novelist in New York City. He suffers from obsessive-compulsive disorder which, paired with his misanthropy, alienates nearly everyone with whom he interacts. He avoids stepping on sidewalk cracks while walking through the city due to a superstition of bad luck, and eats breakfast at the same table in the same restaurant every day using disposable plastic utensils he brings with him due to his pathological mysophobia. He takes an interest in his waitress, Carol Connelly, the only server at the restaurant who can tolerate his behavior.',
 								 'http://upload.wikimedia.org/wikipedia/en/d/dc/As_good_as_it_gets.jpg',
 								 'https://www.youtube.com/watch?v=rrRl2QQKkI8')
+lost_in_translation = movie.Movie('Lost in translation',
+								  'Bob Harris (Murray), an aging American action movie star, arrives in Tokyo to film an advertisement for Suntory whisky, for which he will receive $2 million. Charlotte (Johansson), a young college graduate, is left behind in her hotel room by her husband, John (Ribisi), a celebrity photographer on assignment in Tokyo. Charlotte is unsure of her future with John as she believes he takes more interest in his celebrity models, most notably a young and popular American actress named Kelly (Faris), than he does in her. At the same time, Bob\'s own 25-year marriage is tired and lacking in romance as he goes through a midlife crisis.',
+								  'http://upload.wikimedia.org/wikipedia/en/4/4c/Lost_in_Translation_poster.jpg',
+								  'https://www.youtube.com/watch?v=sU0oZsqeG_s',
+								  )
+lost_world = movie.Movie('Lost World',
+						 'Four years after the events of Jurassic Park, the wealthy Bowman family is on a boat cruise near Isla Sorna off of Central America\'s Pacific coast. Cathy (Camilla Belle), the daughter, wanders off and is attacked by a pack of Compsognathus. She is then saved by her family, who have heard her screams. The incident allows Peter Ludlow (Arliss Howard), the unscrupulous nephew of John Hammond (Richard Attenborough), to gain control of InGen. ',
+						 'http://upload.wikimedia.org/wikipedia/en/b/b5/JP2.jpg',
+						 'https://www.youtube.com/watch?v=RxrvaneULkE')
+
 
 #passion_of_the_christ.show_trailer()
 #pass the instances to the fresh_tomates file for constructing the html page
@@ -54,9 +64,11 @@ fresh_tomatoes.open_movies_page([passion_of_the_christ,
 								 guardians_of_the_galaxy,
 								 san_andreas,
 								 jurassic_park,
+								 lost_world,
 								 aladdin,
 								 prince_of_egypt,
 								 avengers_1,
 								 iron_man,
 								 as_good_as_it_gets,
-								 avengers_2])
+								 avengers_2,
+								 lost_in_translation])
