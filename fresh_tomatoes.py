@@ -6,7 +6,7 @@ import re
 main_page_head = '''
 <head>
     <meta charset="utf-8">
-    <title>Fresh Tomatoes!</title>
+    <title>Juan's movie trailer web-site</title>
 
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -59,12 +59,29 @@ main_page_head = '''
         $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
             // Remove the src so the player itself gets removed, as this is the only
             // reliable way to ensure the video stops playing in IE
-            $("#trailer-video-container").empty();
+            
+            if(event.target.className.indexOf('move-video-modal')==-1)
+                $("#trailer-video-container").empty();
         });
+        
         // Start playing the video whenever the trailer modal is opened
-        $(document).on('click', '.movie-tile', function (event) {
-            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+        $(document).on('click', '.movie-tile,.move-video-modal', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id'),
+                trailerPrev = '',
+                trailerAnt = '';
+                
+            $('.movie-tile').each(function(key,value){
+              
+              if(trailerYouTubeId == value.getAttribute('data-trailer-youtube-id')){
+                  //console.log($('.movie-tile').get(key - 1))
+                  trailerPrev = $('.movie-tile').get(key - 1).getAttribute('data-trailer-youtube-id')
+                  trailerNext = $('.movie-tile').get(key + 1).getAttribute('data-trailer-youtube-id')
+              }
+            })
+            $(".move-video-modal.prev").attr("data-trailer-youtube-id",trailerPrev)
+            $(".move-video-modal.next").attr("data-trailer-youtube-id",trailerNext)
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
               'id': 'trailer-video',
               'type': 'text-html',
@@ -112,6 +129,10 @@ main_page_content = '''
           </a>
           <div class="scale-media" id="trailer-video-container">
           </div>
+          <ul class="pager">
+            <li><a class="move-video-modal prev" href="#">Previous</a></li>
+            <li><a class="move-video-modal next" href="#">Next</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -121,7 +142,7 @@ main_page_content = '''
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+            <a class="navbar-brand" href="#">Juan's movie trailer web-site</a>
           </div>
         </div>
       </div>
@@ -179,4 +200,4 @@ def open_movies_page(movies):
 
   # open the output file in the browser
   url = os.path.abspath(output_file.name)
-  webbrowser.open('file://' + url, new=2) # open in a new tab, if possible
+  #webbrowser.open('file://' + url, new=2) # open in a new tab, if possible

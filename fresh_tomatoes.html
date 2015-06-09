@@ -1,7 +1,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Fresh Tomatoes!</title>
+    <title>Juan's movie trailer web-site</title>
 
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -54,12 +54,29 @@
         $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
             // Remove the src so the player itself gets removed, as this is the only
             // reliable way to ensure the video stops playing in IE
-            $("#trailer-video-container").empty();
+            
+            if(event.target.className.indexOf('move-video-modal')==-1)
+                $("#trailer-video-container").empty();
         });
+        
         // Start playing the video whenever the trailer modal is opened
-        $(document).on('click', '.movie-tile', function (event) {
-            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+        $(document).on('click', '.movie-tile,.move-video-modal', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id'),
+                trailerPrev = '',
+                trailerAnt = '';
+                
+            $('.movie-tile').each(function(key,value){
+              
+              if(trailerYouTubeId == value.getAttribute('data-trailer-youtube-id')){
+                  //console.log($('.movie-tile').get(key - 1))
+                  trailerPrev = $('.movie-tile').get(key - 1).getAttribute('data-trailer-youtube-id')
+                  trailerNext = $('.movie-tile').get(key + 1).getAttribute('data-trailer-youtube-id')
+              }
+            })
+            $(".move-video-modal.prev").attr("data-trailer-youtube-id",trailerPrev)
+            $(".move-video-modal.next").attr("data-trailer-youtube-id",trailerNext)
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
               'id': 'trailer-video',
               'type': 'text-html',
@@ -104,6 +121,10 @@
           </a>
           <div class="scale-media" id="trailer-video-container">
           </div>
+          <ul class="pager">
+            <li><a class="move-video-modal prev" href="#">Previous</a></li>
+            <li><a class="move-video-modal next" href="#">Next</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -113,7 +134,7 @@
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+            <a class="navbar-brand" href="#">Juan's movie trailer web-site</a>
           </div>
         </div>
       </div>
@@ -151,6 +172,13 @@
   <div class="movies-container col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="lc0UehYemQA" data-toggle="modal" data-target="#trailer">
       <img src="http://upload.wikimedia.org/wikipedia/en/e/e7/Jurassic_Park_poster.jpg" width="220" height="342">
       <h2>Jurassic Park</h2>
+  </div>
+
+
+
+  <div class="movies-container col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="RxrvaneULkE" data-toggle="modal" data-target="#trailer">
+      <img src="http://upload.wikimedia.org/wikipedia/en/b/b5/JP2.jpg" width="220" height="342">
+      <h2>Lost World</h2>
   </div>
 
 
@@ -193,6 +221,13 @@
   <div class="movies-container col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="JAUoeqvedMo" data-toggle="modal" data-target="#trailer">
       <img src="http://upload.wikimedia.org/wikipedia/en/1/1b/Avengers_Age_of_Ultron.jpg" width="220" height="342">
       <h2>Avengers age of ultron</h2>
+  </div>
+
+
+
+  <div class="movies-container col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="sU0oZsqeG_s" data-toggle="modal" data-target="#trailer">
+      <img src="http://upload.wikimedia.org/wikipedia/en/4/4c/Lost_in_Translation_poster.jpg" width="220" height="342">
+      <h2>Lost in translation</h2>
   </div>
 
 
