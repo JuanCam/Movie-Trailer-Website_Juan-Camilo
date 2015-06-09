@@ -126,12 +126,13 @@ main_page_content = '''
         </div>
       </div>
     </div>
-    <div class="input-group">
+<!--Added by Juan-->
+    <div class="input-group col-md-offset-4 col-md-7 col-lg-4">
       <input type="text" id="text-filter" class="form-control" placeholder="Type movie's name" aria-describedby="basic-addon2">
-      <span class="input-group-addon" id="basic-addon2">Movie's name</span>
+      <span class="input-group-addon" id="basic-addon2">Movie's name <span class="glyphicon glyphicon-film"></span></span>
     </div>
 
-    <div class="container">
+    <div class="container" style="margin-top:20px">
       {movie_tiles}
     </div>
   </body>
