@@ -10,9 +10,9 @@ PULLING REQUEST
 You can pull the whole site with this url https://github.com/JuanCam/Movie-Trailer-Website_Juan-Camilo
 feel free to improve the project and push your changes
 
-Voice 6262751
-Website : www.movies.com
-e-mail : juacgr_4@hotmail.com
+Voice 6262751<br>
+Website : www.movies.com<br>
+e-mail : juacgr_4@hotmail.com<br>
 
 Copyright 2015 Juan Corporation All rights reserved.
 Movie Website application and its use are subject to license agreement and are also subject to copyright trademark/pattent and/or other laws. 
