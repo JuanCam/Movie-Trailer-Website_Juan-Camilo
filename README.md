@@ -1,5 +1,3 @@
-# Movie-Trailer-Website_Juan-Camilo
-
 <h5>Movie Website - Version 1.0 09/06/2015</h5>
 <h5>Movie Website can be reached at</h5>
 GENERAL USAGE NOTES
