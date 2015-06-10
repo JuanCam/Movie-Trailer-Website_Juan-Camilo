@@ -14,7 +14,7 @@ feel free to improve the project and push your changes
 
 CONTACT INFO
 ------------------
-Author : Juan Camilo Gutierrez Ruiz
+Author : Juan Camilo Gutierrez Ruiz<br>
 Voice : 6262751<br>
 Website : www.movies.com<br>
 e-mail : juacgr_4@hotmail.com<br>
