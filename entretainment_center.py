@@ -1,12 +1,15 @@
 import movie
 import fresh_tomatoes
 
-#All instances of the movie classes
-passion_of_the_christ = movie.Movie('Passion of the Christ',
-									'It starts in Gethsemane where Christ is praying, then comes his last hours, all he suffered, the crucifixion and his glorious resurrection according to Saint Matthew\'s gospel',
-									'http://upload.wikimedia.org/wikipedia/en/6/61/Thepassionposterface-1-.jpg',
-									'https://www.youtube.com/watch?v=MhdDIz3y9zo',
-									2005)
+# All instances of the movie classes
+passion_of_the_christ = movie.Movie(
+  'Passion of the Christ',
+  'It starts in Gethsemane where Christ is praying, then comes his \
+  last hours, all he suffered,the crucifixion and his glorious \
+  resurrection according to Saint Matthew\'s gospel',
+  'http://upload.wikimedia.org/wikipedia/en/6/61/Thepassionposterface-1-.jpg',
+  'https://www.youtube.com/watch?v=MhdDIz3y9zo',
+  2005)
 
 guardians_of_the_galaxy = movie.Movie('Guardians of the Galaxy',
 									  'In 1988, following his mother\'s death, a young Peter Quill is abducted from Earth by the Ravagers, a group of space pirates led by Yondu Udonta. Twenty-six years later on the planet Morag, Quill steals an orb, after which Korath, a subordinate to the fanatical Kree, Ronan, intercepts him. Although Quill escapes with the orb, Yondu discovers his theft and issues a bounty for his capture, while Ronan sends the assassin Gamora after the orb.',
@@ -74,7 +77,7 @@ lost_world = movie.Movie('Lost World',
 						 'https://www.youtube.com/watch?v=RxrvaneULkE',
 						 1997)
 
-#pass the instances to the fresh_tomates file for constructing the html page
+# pass the instances to the fresh_tomates file for constructing the html page
 fresh_tomatoes.open_movies_page([passion_of_the_christ,
 								 guardians_of_the_galaxy,
 								 san_andreas,
