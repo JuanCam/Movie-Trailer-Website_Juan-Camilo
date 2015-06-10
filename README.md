@@ -3,7 +3,7 @@
 GENERAL USAGE NOTES
 -------------------
 -The Movie Website application is a totally free website where you may be able to view information about some movies, such as the: Storyline, Year, Trailer and photo cover.</br>
--You can filter the movies by entereing the name of the movie you wish to find in the upper text field</br>
+-If you want to search movies, you can do it by entereing the name of the movie in the upper text field or any key word contained inside the movie title</br>
 -For using this webiste you must download the source code and execute the fresh_tomatoes.html file or also excute entretainment_center.pyc.</br>
 -Then you can enjoy this site.</br>
 
