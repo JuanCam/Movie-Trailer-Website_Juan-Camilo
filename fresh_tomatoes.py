@@ -59,19 +59,15 @@ main_page_head = '''
         $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
             // Remove the src so the player itself gets removed, as this is the only
             // reliable way to ensure the video stops playing in IE
-            
             if(event.target.className.indexOf('move-video-modal')==-1)
                 $("#trailer-video-container").empty();
         });
-        
         // Start playing the video whenever the trailer modal is opened
         $(document).on('click', '.movie-tile,.move-video-modal', function (event) {
             var trailerYouTubeId = $(this).attr('data-trailer-youtube-id'),
                 trailerPrev = '',
                 trailerAnt = '';
-                
             $('.movie-tile').each(function(key,value){
-              
               if(trailerYouTubeId == value.getAttribute('data-trailer-youtube-id')){
                   //console.log($('.movie-tile').get(key - 1))
                   trailerPrev = $('.movie-tile').get(key - 1).getAttribute('data-trailer-youtube-id')
@@ -100,14 +96,12 @@ main_page_head = '''
           //Execute this piece of code when a key is released from pressing
           var value = $(this).val()
           $(".movies-container").css('display','none')
-          //Get the value of the target input text and hide all the items for 
+          //Get the value of the target input text and hide all the items for
           //show only the filtered items
           var filtr = $(".movies-container").filter(function(index){
-              
               var title = $(this).find($("h2")).text().toLowerCase()//Get all items name from the h2 tag
               return title.indexOf(value) != -1//defines if the value of the input text is similar or matches the movie title
           })
-          
           filtr.css('display','block')//Display all the filter results
           if(filtr.length <= 0){
             alert('No results found!')
@@ -140,7 +134,6 @@ main_page_content = '''
         </div>
       </div>
     </div>
-    
     <!-- Main Page Content -->
     <div class="container">
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -170,8 +163,6 @@ movie_tile_content = '''
   <div class="movies-container col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
       <img src="{poster_image_url}" width="220" height="342">
       <h2>{movie_title}</h2>
-      
-      
       <div class="panel panel-default">
         <div class="panel-heading">Storyline</div>
         <div class="panel-body">
@@ -183,7 +174,9 @@ movie_tile_content = '''
 
 '''
 
+
 def create_movie_tiles_content(movies):
+
     # The HTML content for this section of the page
     content = ''
     for movie in movies:
@@ -197,12 +190,14 @@ def create_movie_tiles_content(movies):
             movie_title=movie.title,
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id,
-            storyline = movie.storyline,
-            year = movie.year
+            storyline=movie.storyline,
+            year=movie.year
         )
     return content
 
+
 def open_movies_page(movies):
+
   # Create or overwrite the output file
   output_file = open('fresh_tomatoes.html', 'w')
 
@@ -215,4 +210,5 @@ def open_movies_page(movies):
 
   # open the output file in the browser
   url = os.path.abspath(output_file.name)
-  #webbrowser.open('file://' + url, new=2) # open in a new tab, if possible
+  # open in a new tab, if possible
+  webbrowser.open('file://' + url, new=2)
