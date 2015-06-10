@@ -1,5 +1,5 @@
-<h5>Movie Website - Version 1.0 09/06/2015</h5>
-<h5>Movie Website can be reached at</h5>
+<h1>Movie Website - Version 1.0 09/06/2015</h1>
+
 GENERAL USAGE NOTES
 -------------------
 -The Movie Website application is a totally free website where you may be able to view information about some movies, such as the: Storyline, Year, Trailer and photo cover.
